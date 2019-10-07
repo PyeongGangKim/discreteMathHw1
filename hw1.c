@@ -17,7 +17,7 @@ int main(int argc, char *argv[]){
 	return -1;
     }             
     FILE *fp = fopen(argv[1], "r");
-    //read a input file	
+    //read a input file
     while(!feof(fp)){ 
         fgets(buffer[rowcount],sizeof(buffer),fp);
         if(buffer[rowcount][0] =='\0'|| buffer[rowcount][0] =='\n' || buffer[rowcount][0] == ' ') break;
@@ -43,7 +43,7 @@ int main(int argc, char *argv[]){
     int rows=rowcount-1;
     int cols=colcount;
     //get sum of cols in each rows and input matrix's value
-    for(int i=1;i<rows+1;i++)
+    for(int i=1;i<rows+1;i++){
         lastNumCheck=0;
         for(int j=0;j<=500;j++){
             if(buffer[i][j] != ' ' && buffer[i][j] !='\n'&&buffer[i][j]!='\0'){
@@ -63,7 +63,8 @@ int main(int argc, char *argv[]){
             if(buffer[i][j]=='\n' || buffer[i][j]=='\0') break;
         }
     }
-    //write the formula
+    
+     //write the formula
     fp = fopen("formula","w");
     for(int i=0;i<rows;i++)
         for(int j=0;j<cols;j++)
@@ -82,7 +83,7 @@ int main(int argc, char *argv[]){
     fprintf(fp, "(assert (and ");
     for (int i = 0; i < rows; i++)
       for (int j = 0; j < cols; j++)
-           fprintf(fp, "(or (= q%d/%d 1) (= q%d/%d 0))", i, j, i, j);////q%d/%d could be either 1 or 0
+           fprintf(fp, "(or (= q%d/%d 1) (= q%d/%d 0))", i, j, i, j);//q%d/%d could be either 1 or 0
     fprintf(fp, "))\n");
     
 //make a formula about sum of rows in each cols
@@ -114,7 +115,7 @@ int main(int argc, char *argv[]){
         }
     }
     fprintf(fp,"))\n");
-
+    
     fprintf(fp, "(check-sat)\n");
     fprintf(fp, "(get-model)\n");
     fclose(fp);
@@ -139,7 +140,6 @@ int main(int argc, char *argv[]){
     while (!feof(fin))
     {
       fscanf(fin, "%s %s %s %s %s", b, s, b, b, t);
-      //we need only p%d/%d(black is 1 white is 0)
       if(strchr(s,'p')){
         sscanf(s, "p%d/%d", &i, &j);
         if (strcmp(t, "0)") != 0)
