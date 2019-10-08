@@ -7,7 +7,7 @@ First, enter this instruction
 After that, Makefile builds a program; 
 
 
-_hw1_ (Sudoku*)<br>
+_hw1_ (Number Cross)<br>
 
 
 Then type the input filename next to the program name
