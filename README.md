@@ -12,8 +12,6 @@ _hw1_ (Number Cross)<br>
 
 Then type the input filename next to the program name
 ~~~
-~@peace:~/19_DiscreteMathmatics$   ./hw1 input.txt
+~@peace:~/discreteMathHw1$   ./hw1 input.txt
 ~~~
 
-## Input file of my program
-There should be no spaces in the last line.<br>
